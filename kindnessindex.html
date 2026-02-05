@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Kindness Challenge Presentation</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@400;700&family=Fredoka:wght@400;600&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Comic Neue', cursive;
+            background-color: #1a202c;
+            overflow: hidden; /* Prevent scrolling */
+        }
+        h1, h2, h3, .heading-font {
+            font-family: 'Fredoka', sans-serif;
+        }
+        /* Slide Transitions */
+        .slide {
+            display: none;
+            opacity: 0;
+            transition: opacity 0.5s ease-in-out;
+        }
+        .slide.active {
+            display: flex;
+            opacity: 1;
+        }
+        
+        /* Custom Animations */
+        @keyframes bounce-slow {
+            0%, 100% { transform: translateY(-5%); }
+            50% { transform: translateY(5%); }
+        }
+        .animate-bounce-slow {
+            animation: bounce-slow 3s infinite;
+        }
+
+        /* Card Styling */
+        .card {
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0,0,0,0.1);
+        }
+
+        /* Loading Spinner */
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-radius: 50%;
+            border-top: 4px solid #3498db;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+            display: inline-block;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="h-screen flex flex-col">
+
+    <main id="presentation-area" class="flex-grow relative bg-white w-full flex items-center justify-center overflow-hidden">
+        
+        <button onclick="changeSlide(-1)" class="absolute left-4 z-20 bg-white/80 hover:bg-white text-gray-800 p-4 rounded-full shadow-lg transition transform hover:scale-110 focus:outline-none group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400 group-hover:text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M15 19l-7-7 7-7" /></svg>
+        </button>
+        <button onclick="changeSlide(1)" class="absolute right-4 z-20 bg-white/80 hover:bg-white text-gray-800 p-4 rounded-full shadow-lg transition transform hover:scale-110 focus:outline-none group">
+            <svg xmlns="http://www.w3.org/2000/svg" class="h-8 w-8 text-gray-400 group-hover:text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="3" d="M9 5l7 7-7 7" /></svg>
+        </button>
+
+        <!-- Slide 1 -->
+        <div class="slide active w-full h-full flex-col items-center justify-center text-center p-8 bg-gradient-to-br from-blue-100 to-purple-100" data-note="Welcome class! Today we are going on a mission to become Kindness Experts.">
+            <div class="text-9xl mb-4 animate-bounce-slow">🤝✨</div>
+            <h1 class="text-6xl md:text-7xl font-bold text-indigo-600 mb-6 drop-shadow-sm tracking-wide">The Kindness Challenge</h1>
+            <h2 class="text-4xl text-purple-600 font-bold mb-8 bg-white/60 inline-block px-8 py-2 rounded-full">Giving Great Compliments!</h2>
+            <p class="text-2xl text-gray-600 max-w-2xl bg-white px-8 py-6 rounded-2xl shadow-xl border-b-8 border-indigo-200">
+                How to use your words to fill someone’s bucket. 🪣💖
+            </p>
+        </div>
+
+        <!-- Slide 2 -->
+        <div class="slide w-full h-full flex-col items-center justify-center p-8 bg-pink-50" data-note="Ask: 'How do you feel when someone says something nice to you?' (Happy, warm). Tell them giving a compliment is like a 'verbal hug'.">
+            <h2 class="text-5xl font-bold text-pink-500 mb-12">What is a Compliment?</h2>
+            <div class="flex flex-col md:flex-row items-center gap-12 max-w-5xl">
+                <div class="text-[10rem]">🎁</div>
+                <ul class="space-y-6 text-left">
+                    <li class="card p-6 text-3xl text-gray-700 flex items-center gap-4">
+                        <span class="text-pink-400 text-4xl">●</span> It is like a <strong>gift</strong> you give with words.
+                    </li>
+                    <li class="card p-6 text-3xl text-gray-700 flex items-center gap-4">
+                        <span class="text-pink-400 text-4xl">●</span> It is saying something nice about someone.
+                    </li>
+                    <li class="card p-6 text-3xl text-gray-700 flex items-center gap-4">
+                        <span class="text-pink-400 text-4xl">●</span> It makes others feel happy and proud!
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+        <!-- Slide 3 -->
+        <div class="slide w-full h-full flex-col items-center justify-center p-8 bg-yellow-50" data-note="Giving compliments changes the energy in the room. It makes YOU feel good too!">
+            <h2 class="text-5xl font-bold text-yellow-600 mb-12">Why Give Compliments?</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl w-full px-4">
+                <div class="card p-8 flex flex-col items-center text-center transform hover:scale-105 transition border-b-8 border-yellow-300 h-full">
+                    <div class="text-7xl mb-4">☀️</div>
+                    <h3 class="text-3xl font-bold text-yellow-600 mb-2">Spread Sunshine</h3>
+                    <p class="text-2xl text-gray-600">Changes a bad day into a good day.</p>
+                </div>
+                <div class="card p-8 flex flex-col items-center text-center transform hover:scale-105 transition border-b-8 border-yellow-300 h-full">
+                    <div class="text-7xl mb-4">🤗</div>
+                    <h3 class="text-3xl font-bold text-yellow-600 mb-2">Make Friends</h3>
+                    <p class="text-2xl text-gray-600">Shows people you care about them.</p>
+                </div>
+                <div class="card p-8 flex flex-col items-center text-center transform hover:scale-105 transition border-b-8 border-yellow-300 h-full">
+                    <div class="text-7xl mb-4">🥰</div>
+                    <h3 class="text-3xl font-bold text-yellow-600 mb-2">Feel Good</h3>
+                    <p class="text-2xl text-gray-600">Making others happy makes <em>you</em> happy!</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 4 -->
+        <div class="slide w-full h-full flex-col items-center justify-center p-8 bg-indigo-50" data-note="These are tools for your friendship toolbox. We will practice each one.">
+            <h2 class="text-5xl font-bold text-indigo-600 mb-8">The 3 Magic Starters 🪄</h2>
+            <p class="text-2xl text-gray-500 mb-10">Sometimes it is hard to know what to say. Use these!</p>
+            <div class="space-y-6 w-full max-w-4xl">
+                <div class="bg-blue-100 p-6 rounded-2xl flex items-center gap-6 border-l-8 border-blue-500 shadow-sm">
+                    <span class="text-6xl font-bold text-blue-500 opacity-50">1</span>
+                    <span class="text-4xl font-bold text-blue-700">"I appreciate..."</span>
+                </div>
+                <div class="bg-green-100 p-6 rounded-2xl flex items-center gap-6 border-l-8 border-green-500 shadow-sm">
+                    <span class="text-6xl font-bold text-green-500 opacity-50">2</span>
+                    <span class="text-4xl font-bold text-green-700">"Thank you for..."</span>
+                </div>
+                <div class="bg-orange-100 p-6 rounded-2xl flex items-center gap-6 border-l-8 border-orange-500 shadow-sm">
+                    <span class="text-6xl font-bold text-orange-500 opacity-50">3</span>
+                    <span class="text-4xl font-bold text-orange-700">"You make me smile when..."</span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 5 -->
+        <div class="slide w-full h-full flex-col items-center justify-center p-8 bg-blue-50" data-note="Activity: Turn to your neighbor right now and say 'I appreciate that you...'">
+            <div class="absolute top-0 left-0 w-full h-4 bg-blue-400"></div>
+            <h2 class="text-5xl font-bold text-blue-600 mb-4">Magic Starter #1</h2>
+            <div class="bg-white px-12 py-6 rounded-full shadow-lg mb-10 border-4 border-blue-200">
+                <h3 class="text-4xl font-bold text-gray-800">"I appreciate..."</h3>
+            </div>
+            <div class="flex flex-col md:flex-row gap-10 max-w-6xl">
+                <div class="flex-1 bg-blue-100 p-8 rounded-3xl">
+                    <h4 class="text-2xl font-bold text-blue-800 mb-4 uppercase tracking-wider">When to use it:</h4>
+                    <p class="text-3xl text-blue-900 leading-relaxed">When you notice someone working hard or being helpful.</p>
+                </div>
+                <div class="flex-1 bg-white p-8 rounded-3xl shadow-lg border-2 border-blue-100">
+                    <h4 class="text-2xl font-bold text-gray-400 mb-4 uppercase tracking-wider">Examples:</h4>
+                    <ul class="space-y-4 text-2xl text-gray-700">
+                        <li class="flex gap-3"><span class="text-blue-500">➜</span> "...how hard you worked on that drawing."</li>
+                        <li class="flex gap-3"><span class="text-blue-500">➜</span> "...that you waited for me at lunch."</li>
+                        <li class="flex gap-3"><span class="text-blue-500">➜</span> "...how you keep your desk so tidy."</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-8 bg-blue-600 text-white px-8 py-3 rounded-full animate-pulse">
+                <strong class="text-xl">ACTIVITY: Turn to your neighbor and try it!</strong>
+            </div>
+        </div>
+
+        <!-- Slide 6 (Compliment Machine) -->
+        <div class="slide w-full h-full flex-col items-center justify-center p-8 bg-purple-50" data-note="AI TIME! Let the robot help you write a compliment.">
+            <h2 class="text-4xl md:text-5xl font-bold text-purple-600 mb-4">The Compliment Machine 🤖✨</h2>
+            <p class="text-xl text-gray-500 mb-6">Need help thinking of one? Ask the friendly bot!</p>
+            <div class="bg-white p-8 rounded-3xl shadow-2xl max-w-3xl w-full border-b-8 border-purple-400">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-6">
+                    <div>
+                        <label class="block text-gray-700 text-lg font-bold mb-2">Who is it for?</label>
+                        <input type="text" id="recipientName" placeholder="e.g., Best Friend, Teacher, Mom" class="w-full p-4 rounded-xl border-2 border-purple-200 focus:border-purple-500 focus:outline-none text-xl bg-purple-50">
+                    </div>
+                    <div>
+                        <label class="block text-gray-700 text-lg font-bold mb-2">What did they do? (Optional)</label>
+                        <input type="text" id="recipientAction" placeholder="e.g., Shared lunch, Helped me" class="w-full p-4 rounded-xl border-2 border-purple-200 focus:border-purple-500 focus:outline-none text-xl bg-purple-50">
+                    </div>
+                </div>
+                <button onclick="generateCompliment()" id="generateBtn" class="w-full bg-gradient-to-r from-purple-500 to-indigo-500 hover:from-purple-600 hover:to-indigo-600 text-white font-bold py-4 px-8 rounded-xl text-2xl shadow-md transition transform hover:scale-[1.02] active:scale-95 flex items-center justify-center gap-2">
+                    <span>✨ Write Magic Compliment ✨</span>
+                </button>
+                <div class="mt-8 relative min-h-[120px] flex items-center justify-center">
+                    <div id="complimentLoader" class="loader hidden absolute"></div>
+                    <div id="complimentResult" class="hidden text-center">
+                        <div class="text-3xl text-gray-800 font-bold leading-relaxed">
+                            "<span id="complimentText">...</span>"
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 7 (Heart vs Stuff) -->
+        <div class="slide w-full h-full flex-col items-center justify-center p-8 bg-slate-50" data-note="Goal: Try to give more HEART compliments. They last much longer than compliments about shoes or toys.">
+            <h2 class="text-5xl font-bold text-slate-700 mb-12">❤️ Heart vs. Stuff 🧢</h2>
+            <div class="flex flex-col md:flex-row gap-8 max-w-6xl w-full">
+                <div class="flex-1 bg-gray-200 p-8 rounded-3xl text-center opacity-70">
+                    <div class="text-6xl mb-4">👟🎒</div>
+                    <h3 class="text-3xl font-bold text-gray-600 mb-4">Stuff Compliments</h3>
+                    <p class="text-2xl text-gray-600">Nice things about what people <strong>have</strong>.</p>
+                </div>
+                <div class="flex-1 bg-red-100 p-8 rounded-3xl text-center shadow-xl transform scale-105 border-4 border-red-300 relative overflow-hidden">
+                    <div class="absolute -right-10 -top-10 text-9xl text-red-200 opacity-50">❤️</div>
+                    <div class="text-6xl mb-4 relative z-10">🧠✨</div>
+                    <h3 class="text-3xl font-bold text-red-600 mb-4 relative z-10">Heart Compliments</h3>
+                    <p class="text-2xl text-red-800 relative z-10">Nice things about who people <strong>are</strong>.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 8 -->
+        <div class="slide w-full h-full flex-col items-center justify-center p-8 bg-teal-50" data-note="You don't have to look away or say 'No I'm not'. Just smile and say Thanks!">
+            <h2 class="text-4xl md:text-5xl font-bold text-teal-700 mb-8 text-center">What if I GET a compliment?</h2>
+            <div class="flex flex-col items-center">
+                <div class="relative bg-white p-12 rounded-[3rem] shadow-xl border-b-8 border-teal-200 mb-10 text-center">
+                    <p class="text-2xl text-gray-400 mb-2">Just say...</p>
+                    <h1 class="text-7xl font-bold text-teal-500">"Thank You!"</h1>
+                </div>
+                <div class="flex gap-4 md:gap-8 mt-4">
+                    <div class="bg-teal-100 px-6 py-4 rounded-xl text-teal-800 text-xl font-bold">😊 Just Smile</div>
+                    <div class="bg-teal-100 px-6 py-4 rounded-xl text-teal-800 text-xl font-bold">👀 Eye Contact</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Slide 9 (Quiz) -->
+        <div class="slide w-full h-full flex-col items-center justify-center p-4 bg-purple-50 overflow-y-auto" data-note="Read the scenarios. Ask students to guess the best choice before revealing it.">
+            <h2 class="text-4xl font-bold text-purple-700 mb-6 mt-4">Let's Practice! (Quiz Time) 🕵️‍♀️</h2>
+            <div class="grid gap-6
